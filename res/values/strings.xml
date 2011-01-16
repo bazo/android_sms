@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="description">description text</string>
+    <string name="hello">Hello World, Messages!</string>
+    <string name="app_name">SMS</string>
+</resources>
