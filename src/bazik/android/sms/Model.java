@@ -75,10 +75,10 @@ public class Model
             	String service_center = cur.getString(cur.getColumnIndex("service_center"));
             	String locked = cur.getString(cur.getColumnIndex("locked"));
             	
-            	ContactsManager contactsManager = new ContactsManager();
+            	//ContactsManager contactsManager = new ContactsManager();
             	//contactsManager.getPerson(this.context, address);
             	
-            	Message message = new Message(id, thread_id, address, person, date, protocol, read, type, reply_path_present, subject, body, service_center, locked);
+            	Message message = new Message(id, thread_id, address, person, date, protocol, read, status, type, reply_path_present, subject, body, service_center, locked);
             	messages.add(message);
             }
             cur.close();

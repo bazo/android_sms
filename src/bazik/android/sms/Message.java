@@ -24,6 +24,7 @@ public class Message
 	private String date;
 	private String protocol;
 	private String read;
+	private String status;
 	private String type;
 	private String reply_path_present;
 	private String subject;
@@ -31,7 +32,7 @@ public class Message
 	private String service_center;
 	private String locked;
 	
-	public Message(String id, String thread_id,	String address,	String person,	String date, String protocol, String read, String type, 
+	public Message(String id, String thread_id,	String address,	String person,	String date, String protocol, String read, String status, String type, 
 				   String reply_path_present, String subject, String body, String service_center, String locked)
 	{
 		this.id = id;
@@ -41,6 +42,7 @@ public class Message
 		this.date = date;
 		this.protocol = protocol;
 		this.read = read;
+		this.status = status;
 		this.type = type;
 		this.reply_path_present = reply_path_present;
 		this.subject = subject;
@@ -145,6 +147,20 @@ public class Message
 	 */
 	public void setRead(String read) {
 		this.read = read;
+	}
+	
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	/**
