@@ -1,6 +1,7 @@
 package bazik.android.sms;
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -55,7 +56,11 @@ public class Layout
 	{
 		TableRow row = new TableRow(this.context);
 		ImageView picture = new ImageView(this.context);
+		
+		//if(message.getContact().getPhoto() == null) picture.setBackgroundResource(R.drawable.people);
+		//else picture.setImageBitmap(BitmapFactory.decodeByteArray(message.getContact().getPhoto(), 0, message.getContact().getPhoto().length() )); 
 		picture.setBackgroundResource(R.drawable.people);
+		
 		row.addView(picture, 48, 48);
 		
 		TableLayout innerTable = new TableLayout(this.context);
@@ -66,7 +71,7 @@ public class Layout
 		TextView headerText = new TextView(this.context);
 		headerText.setWidth(this.windowManager.getDefaultDisplay().getWidth() - 60);
 		
-		headerText.setText(message.getAddress());
+		headerText.setText(message.getContact().getDisplay_name());
 		
 		TextView text_span = new TextView(this.context);
 		text_span.setWidth(this.windowManager.getDefaultDisplay().getWidth() - 60);

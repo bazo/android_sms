@@ -31,9 +31,10 @@ public class Message
 	private String body;
 	private String service_center;
 	private String locked;
+	private Contact contact;
 	
 	public Message(String id, String thread_id,	String address,	String person,	String date, String protocol, String read, String status, String type, 
-				   String reply_path_present, String subject, String body, String service_center, String locked)
+				   String reply_path_present, String subject, String body, String service_center, String locked, Contact contact)
 	{
 		this.id = id;
 		this.thread_id = thread_id;
@@ -49,6 +50,7 @@ public class Message
 		this.body = body;
 		this.service_center = service_center;
 		this.locked = locked;
+		this.contact = contact;
 	}
 
 	/**
@@ -246,7 +248,18 @@ public class Message
 	public void setLocked(String locked) {
 		this.locked = locked;
 	}
-	
-	
-	
+
+	/**
+	 * @return the contact
+	 */
+	public Contact getContact() {
+		return contact;
+	}
+
+	/**
+	 * @param contact the contact to set
+	 */
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
 }

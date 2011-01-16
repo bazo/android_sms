@@ -58,7 +58,7 @@ public class Model
         ArrayList<Message> messages = new ArrayList<Message>();
         //Message messages[] = {};
         try{
-        	for (i = 0; i < cur.getCount() - 1; i++) { 
+        	for (i = 0; i < cur.getCount(); i++) { 
             	cur.move(1);
             	
             	String id = cur.getString(cur.getColumnIndex("_id"));
@@ -75,17 +75,20 @@ public class Model
             	String service_center = cur.getString(cur.getColumnIndex("service_center"));
             	String locked = cur.getString(cur.getColumnIndex("locked"));
             	
-            	//ContactsManager contactsManager = new ContactsManager();
-            	//contactsManager.getPerson(this.context, address);
+            	ContactsManager contactsManager = new ContactsManager();
+            	Contact contact = contactsManager.getContact(this.context, address);
             	
-            	Message message = new Message(id, thread_id, address, person, date, protocol, read, status, type, reply_path_present, subject, body, service_center, locked);
+            	Message message = new Message(id, thread_id, address, person, date, protocol, read, status, type, reply_path_present, subject, body, service_center, locked, contact);
             	messages.add(message);
             }
-            cur.close();
         }
         catch(ArrayIndexOutOfBoundsException e)
         {
         	System.out.println(e.toString() + " " + Integer.toString(i));
+        }
+        finally
+        {
+        	cur.close();
         }
         return messages;
     }
